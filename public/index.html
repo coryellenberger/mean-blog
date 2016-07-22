@@ -7,15 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Flotilla</title>
+    <link href="libs/normalize-css/normalize.css" relf="stylesheet">
     <!-- Flotillas CSS -->
     <link href="assets/css/flotilla.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <!-- load angular and angular route via CDN -->
     <script src="libs/angular/angular.js"></script>
     <script src="libs/angular-route/angular-route.js"></script>
-    <script src="libs/jquery/dist/jquery.js"></script>
-    <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
     <script src="libs/lodash/dist/lodash.js"></script>
 
     <!-- Angular Custom -->
@@ -28,23 +25,12 @@
 </head>
 <body>
 
-<div class="container">
+<!-- Navbar -->
+<a href="#/" class="navbar-brand">Flotilla</a>
+<a href="#/blog">Articles</a>
 
-    <!-- HEADER -->
-    <nav class="navbar navbar-inverse">
-        <div class="navbar-header">
-            <base href="/"/>
-            <a class="navbar-brand" href="/">Flotilla</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="blog">Articles</a></li>
-        </ul>
-    </nav>
-
-    <!-- ANGULAR DYNAMIC CONTENT -->
-    <div ng-view></div>
-
-</div>
+<!-- ANGULAR DYNAMIC CONTENT -->
+<ng-view></ng-view>
 
 </body>
 </html>

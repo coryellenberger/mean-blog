@@ -2,6 +2,8 @@
   // public/app.routes.js
   angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
+    $locationProvider.hashPrefix();
+
     $routeProvider
 
       .when('/', {
@@ -21,8 +23,6 @@
       })
 
       .otherwise('/');
-
-    $locationProvider.html5Mode(true);
 
   }]);
 
