@@ -1,5 +1,15 @@
 # flotilla
 
+#### Initializing Project
+This will install all of the node modules for this project
+After node modules it will run gulp to execute bower bringing in client components
+`$ npm install`
+
+#### Start Project
+This will start the node express server on port 3000 
+`$ npm start`
+You can then go to localhost:3000
+
 #### Starting up MongoDB local
 After installing MongoDB MSI locally (Windows)
 execute the following command in

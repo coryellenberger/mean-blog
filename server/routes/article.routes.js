@@ -6,11 +6,17 @@ module.exports = function(app) {
 
   app.get('/api/article', function(req, res) {
     res.json([{
+      id: 1,
       name: 'Best blog',
       details: 'Well I wrote this entire blog in one day'
     }, {
+      id: 2,
       name: 'Another blog',
       details: 'Well I wrote this one in two days'
+    }, {
+      id: 3,
+      name: 'Third blog',
+      details: 'Well I wrote this one in five seconds'
     }]);
 
     /*// use mongoose to get all articles in the database

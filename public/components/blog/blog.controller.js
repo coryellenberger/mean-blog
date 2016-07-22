@@ -3,7 +3,7 @@
   angular.module('blogController', ['articleService']).controller('BlogController', function($scope, $route, articleService) {
 
       articleService.get().then(function (response) {
-        $scope.article = _.find(response.data, { name: $route.current.params.articleId })
+        $scope.article = _.find(response.data, { id: parseInt($route.current.params.articleId) })
       });
 
   });

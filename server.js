@@ -43,7 +43,12 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public'));
 
 // routes ==================================================
-require('./server/routes/setup')(app); // configure our routes
+require('./server/routes/setup')(app, function() {
+  // capture all / routes
+  app.get('*', function(req, res) {
+    res.sendFile(__dirname + '/public/index.html');
+  });
+}); // configure our routes
 
 // start app ===============================================
 // startup our app at http://localhost:3000
