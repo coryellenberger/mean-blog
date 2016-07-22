@@ -1,0 +1,25 @@
+{
+  "name": "flotilla",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Cory Ellenberger"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/coryellenberger/flotilla",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.x",
+    "angular-mocks": "1.5.x",
+    "angular-route": "1.5.x",
+    "bootstrap": "3.3.x",
+    "lodash": "^4.13.1"
+  }
+}

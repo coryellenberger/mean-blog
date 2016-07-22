@@ -1,0 +1,30 @@
+{
+  "name": "flotilla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "gulp bower",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coryellenberger/flotilla.git"
+  },
+  "author": "Cory Ellenberger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coryellenberger/flotilla/issues"
+  },
+  "homepage": "https://github.com/coryellenberger/flotilla#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.5"
+  },
+  "devDependencies": {}
+}
