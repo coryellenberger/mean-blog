@@ -4,13 +4,13 @@ angular.module('articleService', []).factory('articleService', ['$http', functio
   return {
     // call to get all articles
     get: function() {
-      return $http.get('/api/article');
+      return $http.get('/api/articles');
     },
 
     // these will work when more API routes are defined on the Node side of things
     // call to POST and create a new article
-    create: function(nerdData) {
-      return $http.post('/api/article', nerdData);
+    create: function(articleData) {
+      return $http.post('/api/article', articleData);
     },
 
     // call to DELETE a article

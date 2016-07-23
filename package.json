@@ -23,6 +23,7 @@
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-bower": "0.0.13",
+    "lodash": "^4.13.1",
     "method-override": "^2.3.6",
     "mongoose": "^4.5.5"
   },

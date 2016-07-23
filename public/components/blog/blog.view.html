@@ -1,7 +1,17 @@
 <!-- public/components/blog/blog.view.html -->
-<div>
-    <h1>{{ article.name }}</h1>
+<div ng-hide="editing">
+    <h1>{{ article.title }}</h1>
 
-    <p>{{ article.details }}</p>
+    <p>{{ article.detail }}</p>
     <article-directive></article-directive>
+    <button ng-click="editMode()">Edit</button>
+</div>
+<div ng-show="editing">
+    <p>Title:</p>
+    <input ng-model="article.title" value="{{ article.title }}">
+    <br />
+    <p>Detail:</p>
+    <input ng-model="article.detail" value="{{ article.detail }}">
+    <button ng-click="postArticle()">Save</button>
+    <button ng-click="cancelEdit()">Cancel</button>
 </div>
