@@ -1,6 +1,6 @@
 (function() {
   // public/app.routes.js
-  angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  angular.module('flotilla').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     $locationProvider.hashPrefix();
 

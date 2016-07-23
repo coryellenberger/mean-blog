@@ -17,7 +17,7 @@
       });
     };
 
-    $scope.editMode = function() {
+    $scope.editArticle = function() {
       $scope.backup = _.clone($scope.article);
       $scope.editing = true;
     };
@@ -25,6 +25,11 @@
     $scope.cancelEdit = function() {
       $scope.article = $scope.backup;
       $scope.editing = false;
+    };
+
+    $scope.newArticle = function() {
+      $scope.article = {};
+      $scope.editing = true;
     };
 
   }

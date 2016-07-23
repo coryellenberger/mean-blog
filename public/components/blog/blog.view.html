@@ -3,8 +3,9 @@
     <h1>{{ article.title }}</h1>
 
     <p>{{ article.detail }}</p>
+    <button ng-click="editArticle()">Edit</button>
+    <button ng_click="newArticle()">New</button>
     <article-directive></article-directive>
-    <button ng-click="editMode()">Edit</button>
 </div>
 <div ng-show="editing">
     <p>Title:</p>

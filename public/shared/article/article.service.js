@@ -1,6 +1,5 @@
 // public/shared/article/article.service.js
-angular.module('articleService', []).factory('articleService', ['$http', function($http) {
-
+angular.module('flotilla').factory('articleService', ['$http', function($http) {
   return {
     // call to get all articles
     get: function() {
