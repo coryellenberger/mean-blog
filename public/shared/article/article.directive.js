@@ -3,14 +3,13 @@
   angular.module('flotilla')
          .directive('articleDirective', articleDirective);
 
-  function articleDirective(articleService) {
+  articleDirective.$inject = [];
+
+  function articleDirective() {
     return {
       templateUrl: 'shared/article/article.view.html',
-      controller: function($scope) {
-        articleService.get().then(function successCallback(response) {
-          $scope.articles = response.data;
-        });
-      }
+      restrict: 'E'
     };
   };
+
 })();

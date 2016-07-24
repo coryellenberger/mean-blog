@@ -1,6 +1,10 @@
 <!-- public/components/home/home.view.html -->
 <div>
-    <h1>Welcome to the Flotilla Blog</h1>
+    <div class="posts">
+        <h1 class="content-subhead">Recent Posts</h1>
 
-    <article-directive></article-directive>
+        <div ng-repeat="article in articles">
+            <article-directive></article-directive>
+        </div>
+    </div>
 </div>

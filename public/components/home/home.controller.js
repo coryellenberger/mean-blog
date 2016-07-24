@@ -1,10 +1,14 @@
 (function() {
-  // public/components/blog/blog.controller.js
+  // public/components/home/home.controller.js
   angular.module('flotilla')
          .controller('HomeController', HomeController);
 
-  function HomeController() {
+  HomeController.$inject = ['$scope', 'articleManager'];
 
+  function HomeController($scope, articleManager) {
+    articleManager.loadAllArticles().then(function(articles) {
+      $scope.articles = articles;
+    });
   }
 
 })();

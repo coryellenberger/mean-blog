@@ -20,8 +20,22 @@ module.exports = function(app) {
     });
   });
 
-  app.route('/api/article')
-    .post(function (req, res) {
+  app.route('/api/article/:id')
+    .get(function(req, res) {
+      Article.findById(req.params.id)
+        .exec(function(err, article) {
+          // if there is an error retrieving, send the error.
+          // nothing after res.send(err) will execute
+          if (err) {
+            res.send(err);
+          }
+
+          console.log('/api/article/' + req.params.id);
+
+          res.json(article);
+        });
+    })
+    .post(function(req, res) {
       Article.findById(req.body._id)
         .exec(function(err, article) {
           // if there is an error retrieving, send the error.
@@ -57,7 +71,7 @@ module.exports = function(app) {
           });
         });
     })
-    .delete(function (req, res) {
+    .delete(function(req, res) {
 
     });
 

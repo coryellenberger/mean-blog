@@ -1,3 +1,16 @@
-<div ng-repeat="article in articles">
-    <a href="#/blog/{{ article._id }}">{{ article.title }}</a>
-</div>
+<!-- A single blog post -->
+<section class="post">
+    <header class="post-header">
+        <img class="post-avatar" alt="Tilo Mitra's avatar" height="48" width="48" src="assets/img/common/tilo-avatar.png">
+
+        <h2 class="post-title"><a href="#/article/{{ article._id }}">{{ article.title }}</a></h2>
+
+        <p class="post-meta">
+            By <a href="#" class="post-author">{{ article.by }}</a>
+        </p>
+    </header>
+
+    <div class="post-description">
+        <p>{{ article.detail }}</p>
+    </div>
+</section>

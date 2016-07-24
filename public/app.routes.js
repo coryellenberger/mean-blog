@@ -11,15 +11,22 @@
         controller: 'HomeController'
       })
 
-      .when('/blog', {
-        templateUrl: 'components/blog/blog.view.html',
-        controller: 'BlogController'
+      // create article
+      .when('/article', {
+        templateUrl: 'components/article/article.edit.view.html',
+        controller: 'ArticleEditController'
       })
 
-      // nerds page that will use the NerdController
-      .when('/blog/:articleId', {
-        templateUrl: 'components/blog/blog.view.html',
-        controller: 'BlogController'
+      // visit article
+      .when('/article/:articleId', {
+        templateUrl: 'components/article/article.view.html',
+        controller: 'ArticleController'
+      })
+
+      // edit article
+      .when('/article/:articleId/edit', {
+        templateUrl: 'components/article/article.edit.view.html',
+        controller: 'ArticleEditController'
       })
 
       .otherwise('/');
