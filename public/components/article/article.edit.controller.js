@@ -7,6 +7,7 @@
 
   function ArticleEditController ($scope, $route, $location, articleManager) {
     var _cancelPath = '#/'
+    var _ORIGINAL_PATH = _cancelPath
     var _ARTICLE_ID = $route.current.params.articleId
 
     if (_ARTICLE_ID) {
@@ -23,6 +24,12 @@
 
     $scope.saveClick = function () {
       articleManager.updateArticle($scope.article)
+      $scope.cancelClick()
+    }
+
+    $scope.deleteClick = function () {
+      articleManager.deleteArticle($scope.article._id)
+      _cancelPath = _ORIGINAL_PATH
       $scope.cancelClick()
     }
   }

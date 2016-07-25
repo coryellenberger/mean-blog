@@ -95,6 +95,12 @@
           })
         }
         return article
+      },
+      deleteArticle: function (articleId) {
+        var article = _search(articleId)
+        if (article) {
+          article.delete()
+        }
       }
     }
   }

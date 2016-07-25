@@ -10,9 +10,7 @@
   },
   "standard": {
     "ignore": [
-      "public/libs/**",
-      "server/**",
-      "server.js"
+      "public/libs/**"
     ],
     "globals": [ "angular" ]
   },

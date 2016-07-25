@@ -15,8 +15,8 @@
       setData: function (articleData) {
         angular.extend(this, articleData)
       },
-      delete: function (articleId) {
-        $http.delete('/api/article/' + articleId)
+      delete: function () {
+        $http.delete('/api/article/' + this._id)
       },
       update: function () {
         var self = this
