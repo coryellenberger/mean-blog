@@ -14,7 +14,7 @@ module.exports = function(app) {
         res.send(err);
       }
 
-      console.log(articles);
+      console.log('/api/articles');
 
       res.json(articles); // return all articles in JSON format
     });
@@ -36,7 +36,7 @@ module.exports = function(app) {
         });
     })
     .post(function(req, res) {
-      Article.findById(req.body._id)
+      Article.findById(req.params.id)
         .exec(function(err, article) {
           // if there is an error retrieving, send the error.
           // nothing after res.send(err) will execute

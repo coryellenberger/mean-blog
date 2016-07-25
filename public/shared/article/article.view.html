@@ -1,12 +1,16 @@
 <!-- A single blog post -->
 <section class="post">
     <header class="post-header">
-        <img class="post-avatar" alt="Tilo Mitra's avatar" height="48" width="48" src="assets/img/common/tilo-avatar.png">
+        <img class="post-avatar" alt="Tilo Mitra's avatar" height="48" width="48"
+             src="https://avatars2.githubusercontent.com/u/10102569?v=3&u=2b3a2697643f0b9589941fee899ec7a0f38958fe&s=140">
 
         <h2 class="post-title"><a href="#/article/{{ article._id }}">{{ article.title }}</a></h2>
 
         <p class="post-meta">
             By <a href="#" class="post-author">{{ article.by }}</a>
+            <a class="post-category post-category-js" ng-repeat="tag in article.tags | commaSplit">
+                {{ tag }}
+            </a>
         </p>
     </header>
 

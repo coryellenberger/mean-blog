@@ -18,8 +18,13 @@
       delete: function(articleId) {
         $http.delete('/api/article/' + articleId);
       },
-      update: function(articleData) {
-        $http.post('/api/article', articleData);
+      update: function() {
+        var self = this;
+        var deferred = $http.post('/api/article/' + self._id, self)
+        deferred.then(function(response) {
+          self.setData(response.data);
+        });
+        return deferred;
       }
     };
     return Article;

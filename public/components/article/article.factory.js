@@ -61,15 +61,20 @@
       },
       /* Use this function in order to get instances of all the articles */
       loadAllArticles: function() {
+        // create deferred
         var deferred = $q.defer();
+        // get all articles
         $http.get('/api/articles')
           .success(function(data) {
+            // on success
             var articles = [];
+            // loop over the returned articles
             _.each(data, function(articleData) {
+              // add each as an instance to the pool
               var article = _retrieveInstance(articleData._id, articleData);
               articles.push(article);
             });
-
+            // resolve deferred with articles
             deferred.resolve(articles);
           })
           .error(function() {
@@ -77,13 +82,16 @@
           });
         return deferred.promise;
       },
-      /*  This function is useful when we got somehow the article data and we wish to store it or update the pool and get a article instance in return */
-      setArticle: function(articleData) {
+      updateArticle: function(articleData) {
         var article = _search(articleData._id);
         if (article) {
-          article.setData(articleData);
+          article.update();
         } else {
-          article = _retrieveInstance(articleData);
+          // if instance doesn't exist create new
+          article = new articleModel(articleData);
+          article.update().then(function() {
+            _retrieveInstance(article);
+          });
         }
         return article;
       }
