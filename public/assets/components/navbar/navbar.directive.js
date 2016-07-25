@@ -5,7 +5,7 @@
 
   function navbarDirective () {
     return {
-      templateUrl: 'components/navbar/navbar.view.html',
+      templateUrl: 'assets/components/navbar/navbar.view.html',
       controller: function ($scope) {
         $scope.title = 'Flotilla'
         $scope.tagline = 'Where we speak our minds'

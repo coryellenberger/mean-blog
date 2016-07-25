@@ -7,7 +7,7 @@
 
   function articleDirective () {
     return {
-      templateUrl: 'shared/article/article.view.html',
+      templateUrl: 'assets/shared/article/article.view.html',
       restrict: 'E'
     }
   }

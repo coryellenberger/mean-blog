@@ -6,13 +6,15 @@
   "scripts": {
     "postinstall": "gulp bower",
     "start": "node server.js",
-    "test": "standard"
+    "test": "standard && gulp test"
   },
   "standard": {
     "ignore": [
       "public/libs/**"
     ],
-    "globals": [ "angular" ]
+    "globals": [
+      "angular"
+    ]
   },
   "repository": {
     "type": "git",
@@ -34,6 +36,10 @@
     "mongoose": "^4.5.5"
   },
   "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
     "standard": "^7.1.2"
   }
 }

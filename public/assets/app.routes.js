@@ -11,25 +11,25 @@
     $routeProvider
 
       .when('/', {
-        templateUrl: 'components/home/home.view.html',
+        templateUrl: 'assets/components/home/home.view.html',
         controller: 'HomeController'
       })
 
       // create article
       .when('/article', {
-        templateUrl: 'components/article/article.edit.view.html',
+        templateUrl: 'assets/components/article/article.edit.view.html',
         controller: 'ArticleEditController'
       })
 
       // visit article
       .when('/article/:articleId', {
-        templateUrl: 'components/article/article.view.html',
+        templateUrl: 'assets/components/article/article.view.html',
         controller: 'ArticleController'
       })
 
       // edit article
       .when('/article/:articleId/edit', {
-        templateUrl: 'components/article/article.edit.view.html',
+        templateUrl: 'assets/components/article/article.edit.view.html',
         controller: 'ArticleEditController'
       })
 
