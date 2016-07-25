@@ -1,5 +1,5 @@
-(function() {
+(function () {
+  // public/app.module.js
   // define the 'flotilla' module
-  angular.module('flotilla', ['ngRoute', 'lodash']);
-
-})();
+  angular.module('flotilla', ['ngRoute', 'lodash'])
+})()

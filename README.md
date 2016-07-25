@@ -1,5 +1,7 @@
 # flotilla
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 #### Initializing Project
 This will install all of the node modules for this project
 After node modules it will run gulp to execute bower bringing in client components

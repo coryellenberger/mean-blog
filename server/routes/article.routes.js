@@ -12,6 +12,7 @@ module.exports = function(app) {
       // nothing after res.send(err) will execute
       if (err) {
         res.send(err);
+        return;
       }
 
       console.log('/api/articles');
@@ -28,6 +29,7 @@ module.exports = function(app) {
           // nothing after res.send(err) will execute
           if (err) {
             res.send(err);
+            return;
           }
 
           console.log('/api/article/' + req.params.id);
@@ -35,13 +37,19 @@ module.exports = function(app) {
           res.json(article);
         });
     })
+    .delete(function(req, res) {
+
+    });
+
+  app.route('/api/article')
     .post(function(req, res) {
-      Article.findById(req.params.id)
+      Article.findById(req.body._id)
         .exec(function(err, article) {
           // if there is an error retrieving, send the error.
           // nothing after res.send(err) will execute
           if (err) {
             res.send(err);
+            return;
           }
 
           if (article) {
@@ -50,6 +58,7 @@ module.exports = function(app) {
             article.save(function(err) {
               if (err) {
                 res.send(err);
+                return;
               }
 
               console.log('Article Updated', article._id);
@@ -64,15 +73,13 @@ module.exports = function(app) {
           newArticle.save(function(err) {
             if (err) {
               res.send(err);
+              return;
             }
 
             console.log('Article Inserted', newArticle._id);
             res.json(newArticle);
           });
         });
-    })
-    .delete(function(req, res) {
-
     });
 
 };

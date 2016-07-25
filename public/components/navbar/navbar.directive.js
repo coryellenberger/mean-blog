@@ -1,15 +1,15 @@
-(function() {
+(function () {
+  // public/components/navbar/navbar.directive.js
   angular.module('flotilla')
-         .directive('navbarDirective', navbarDirective);
+         .directive('navbarDirective', navbarDirective)
 
-  function navbarDirective() {
+  function navbarDirective () {
     return {
       templateUrl: 'components/navbar/navbar.view.html',
-      controller: function($scope) {
-        $scope.title = 'Flotilla';
-        $scope.tagline = 'Where we speak our mind'
+      controller: function ($scope) {
+        $scope.title = 'Flotilla'
+        $scope.tagline = 'Where we speak our minds'
       }
-    };
-  };
-
-})();
+    }
+  }
+})()

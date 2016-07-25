@@ -1,8 +1,12 @@
-(function() {
+(function () {
   // public/app.routes.js
-  angular.module('flotilla').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  angular.module('flotilla')
+         .config(RouteConfig)
 
-    $locationProvider.hashPrefix();
+  RouteConfig.$inject = ['$routeProvider', '$locationProvider']
+
+  function RouteConfig ($routeProvider, $locationProvider) {
+    $locationProvider.hashPrefix()
 
     $routeProvider
 
@@ -29,8 +33,6 @@
         controller: 'ArticleEditController'
       })
 
-      .otherwise('/');
-
-  }]);
-
-})();
+      .otherwise('/')
+  }
+})()

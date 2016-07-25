@@ -1,33 +1,32 @@
-(function() {
+(function () {
   // public/components/article/article.model.factory.js
   angular.module('flotilla')
-         .factory('articleModel', articleModel);
+         .factory('articleModel', articleModel)
 
-  articleModel.$inject = ['$http'];
+  articleModel.$inject = ['$http']
 
-  function articleModel($http) {
-    function Article(articleData) {
+  function articleModel ($http) {
+    function Article (articleData) {
       if (articleData) {
-        this.setData(articleData);
+        this.setData(articleData)
       }
     }
     Article.prototype = {
-      setData: function(articleData) {
-        angular.extend(this, articleData);
+      setData: function (articleData) {
+        angular.extend(this, articleData)
       },
-      delete: function(articleId) {
-        $http.delete('/api/article/' + articleId);
+      delete: function (articleId) {
+        $http.delete('/api/article/' + articleId)
       },
-      update: function() {
-        var self = this;
-        var deferred = $http.post('/api/article/' + self._id, self)
-        deferred.then(function(response) {
-          self.setData(response.data);
-        });
-        return deferred;
+      update: function () {
+        var self = this
+        var deferred = $http.post('/api/article', self)
+        deferred.then(function (response) {
+          self.setData(response.data)
+        })
+        return deferred
       }
-    };
-    return Article;
+    }
+    return Article
   }
-
-})();
+})()

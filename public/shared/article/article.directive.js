@@ -1,15 +1,14 @@
-(function() {
+(function () {
   // public/shared/article/article.directive.js
   angular.module('flotilla')
-         .directive('articleDirective', articleDirective);
+         .directive('articleDirective', articleDirective)
 
-  articleDirective.$inject = [];
+  articleDirective.$inject = []
 
-  function articleDirective() {
+  function articleDirective () {
     return {
       templateUrl: 'shared/article/article.view.html',
       restrict: 'E'
-    };
-  };
-
-})();
+    }
+  }
+})()
