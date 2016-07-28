@@ -1,5 +1,5 @@
 describe('HomeController', function () {
-  beforeEach(module('flotilla'));
+  beforeEach(module('flotilla'))
 
   var $controller
   var $scope
@@ -15,10 +15,10 @@ describe('HomeController', function () {
     $scope = _$rootScope_.$new()
     deferred = _$q_.defer()
     articleManager = _articleManager_
-  }));
+  }))
 
-  it('should get $scope.articles from articleManager.loadAllArticles at construction', function() {
-    spyOn(articleManager, 'loadAllArticles').and.returnValue(deferred.promise);
+  it('should get $scope.articles from articleManager.loadAllArticles at construction', function () {
+    spyOn(articleManager, 'loadAllArticles').and.returnValue(deferred.promise)
 
     $controller('HomeController', {
       $scope: $scope,
@@ -30,5 +30,5 @@ describe('HomeController', function () {
     $scope.$apply()
 
     expect($scope.articles).toEqual(_MOCK_ARTICLE)
-  });
-});
+  })
+})

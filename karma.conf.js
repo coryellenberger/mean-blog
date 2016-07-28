@@ -10,12 +10,17 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
+      // load angular first
       { pattern: 'public/libs/angular/angular.js', watched: false },
+      // load angular mock for testing
       { pattern: 'public/libs/angular-mocks/angular-mocks.js', watched: false },
+      // load angular route
       { pattern: 'public/libs/angular-route/angular-route.js', watched: false },
+      // load lodash
       { pattern: 'public/libs/lodash/dist/lodash.min.js', watched: false },
-      { pattern: 'public/globals/lodash.factory.js', watched: false },
+      // load all non-test resources first
       { pattern: 'public/assets/**/!(*spec).js', watched: true },
+      // then load the unit tests
       { pattern: 'public/assets/**/**.spec.js', watched: true }
     ],
 
@@ -51,7 +56,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'PhantomJS'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

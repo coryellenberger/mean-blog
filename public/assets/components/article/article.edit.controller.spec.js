@@ -1,5 +1,5 @@
 describe('ArticleEditController', function () {
-  beforeEach(module('flotilla'));
+  beforeEach(module('flotilla'))
 
   var $controller
   var $scope
@@ -23,21 +23,42 @@ describe('ArticleEditController', function () {
     $scope = _$rootScope_.$new()
     deferred = _$q_.defer()
     articleManager = _articleManager_
-  }));
+  }))
 
-  it('should get $scope.article from articleManager.getArticle at construction', function() {
-    spyOn(articleManager, 'getArticle').and.returnValue(deferred.promise)
+  describe('should', function () {
+    it('get $scope.article from articleManager.getArticle at construction if articleId in $route.current.params', function () {
+      spyOn(articleManager, 'getArticle').and.returnValue(deferred.promise)
 
-    $controller('ArticleEditController', {
-      $scope: $scope,
-      $route: $route,
-      articleManager: articleManager
+      $controller('ArticleController', {
+        $scope: $scope,
+        $route: $route,
+        articleManager: articleManager
+      })
+
+      deferred.resolve(_MOCK_ARTICLE)
+
+      $scope.$apply()
+
+      expect($scope.article).toEqual(_MOCK_ARTICLE)
+      expect(articleManager.getArticle).toHaveBeenCalledWith(_ARTICLE_ID)
     })
 
-    deferred.resolve(_MOCK_ARTICLE)
+    it('not set $scope.article if $route.current.params.articleId is missing', function () {
+      // TODO: update this test to not load $scope.article
+      spyOn(articleManager, 'getArticle').and.returnValue(deferred.promise)
 
-    $scope.$apply()
+      $controller('ArticleController', {
+        $scope: $scope,
+        $route: $route,
+        articleManager: articleManager
+      })
 
-    expect($scope.article).toEqual(_MOCK_ARTICLE)
-  });
-});
+      deferred.resolve(_MOCK_ARTICLE)
+
+      $scope.$apply()
+
+      expect($scope.article).toEqual(_MOCK_ARTICLE)
+      expect(articleManager.getArticle).toHaveBeenCalledWith(_ARTICLE_ID)
+    })
+  })
+})

@@ -10,7 +10,8 @@ gulp.task('bower', function () {
 gulp.task('test', function (done) {
   new Server({
     configFile: path.join(__dirname, '/karma.conf.js'),
-    singleRun: true
+    singleRun: true,
+    browsers: ['PhantomJS']
   }, done).start()
 })
 

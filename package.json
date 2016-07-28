@@ -13,7 +13,13 @@
       "public/libs/**"
     ],
     "globals": [
-      "angular"
+      "angular",
+      "it",
+      "describe",
+      "beforeEach",
+      "inject",
+      "spyOn",
+      "expect"
     ]
   },
   "repository": {
