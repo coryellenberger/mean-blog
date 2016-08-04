@@ -21,6 +21,7 @@
     <!-- Angular -->
     <script src="libs/angular/angular.js"></script>
     <script src="libs/angular-route/angular-route.js"></script>
+    <script src="libs/angular-resource/angular-resource.js"></script>
 
     <!-- Lodash -->
     <script src="libs/lodash/dist/lodash.js"></script>
@@ -29,22 +30,36 @@
     <script src="assets/globals/lodash.factory.js"></script>
     <script src="assets/app.module.js"></script>
     <script src="assets/app.routes.js"></script>
-    <script src="assets/components/navbar/navbar.directive.js"></script>
     <script src="assets/filters/comma.split.filter.js"></script>
 
     <!-- Article -->
     <script src="assets/components/article/article.model.factory.js"></script>
     <script src="assets/components/article/article.factory.js"></script>
     <script src="assets/components/article/article.controller.js"></script>
-    <script src="assets/components/article/article.edit.controller.js"></script>
-    <script src="assets/shared/article/article.directive.js"></script>
+    <script src="assets/components/article/edit/article.edit.controller.js"></script>
 
     <script src="assets/components/home/home.controller.js"></script>
 </head>
 <body>
 <div id="layout" class="pure-g">
     <!-- Navbar -->
-    <navbar-directive></navbar-directive>
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Flotilla</h1>
+            <h2 class="brand-tagline">Where we speak our minds</h2>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="#/">Flotilla</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="new-article" class="pure-button" href="#/article">New Article</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
     <!-- ANGULAR DYNAMIC CONTENT -->
     <div class="content pure-u-1 pure-u-md-3-4">

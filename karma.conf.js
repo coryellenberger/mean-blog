@@ -14,6 +14,8 @@ module.exports = function (config) {
       { pattern: 'public/libs/angular/angular.js', watched: false },
       // load angular mock for testing
       { pattern: 'public/libs/angular-mocks/angular-mocks.js', watched: false },
+      // load angular resource
+      { pattern: 'public/libs/angular-resource/angular-resource.js', watched: false },
       // load angular route
       { pattern: 'public/libs/angular-route/angular-route.js', watched: false },
       // load lodash
