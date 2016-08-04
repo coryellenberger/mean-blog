@@ -1,13 +1,23 @@
+/**
+ * HomeController
+ * @namespace Controllers
+ */
 (function () {
-  // public/components/home/home.controller.js
-  angular.module('flotilla')
-         .controller('HomeController', HomeController)
+  angular
+    .module('flotilla')
+    .controller('HomeController', HomeController)
 
-  HomeController.$inject = ['$scope', 'articleManager']
+  HomeController.$inject = ['articleManager']
 
-  function HomeController ($scope, articleManager) {
+  /**
+   * @namespace HomeController
+   * @desc Binds the View/Model/Business Logic for Home
+   * @memberOf flotilla.Controllers
+   */
+  function HomeController (articleManager) {
+    var vm = this
     articleManager.loadAllArticles().then(function (articles) {
-      $scope.articles = articles
+      vm.articles = articles
     })
   }
 })()

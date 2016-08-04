@@ -24,4 +24,4 @@ delete the node_modules and public/components folder then run the following comm
 `npm install --quiet --production`
 
 #### get JSDocs
-`jsdoc ./src/ -r`
+`jsdoc ./public/assets -r`

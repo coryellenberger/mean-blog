@@ -10,7 +10,8 @@
   },
   "standard": {
     "ignore": [
-      "public/libs/**"
+      "public/libs/**",
+      "out/**"
     ],
     "globals": [
       "angular",
@@ -19,7 +20,11 @@
       "beforeEach",
       "inject",
       "spyOn",
-      "expect"
+      "expect",
+      "browser",
+      "element",
+      "by",
+      "completedAmount"
     ]
   },
   "repository": {

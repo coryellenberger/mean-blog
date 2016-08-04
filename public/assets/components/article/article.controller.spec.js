@@ -28,8 +28,7 @@ describe('ArticleController', function () {
   it('should get $scope.article from articleManager.getArticle at construction', function () {
     spyOn(articleManager, 'getArticle').and.returnValue(deferred.promise)
 
-    $controller('ArticleEditController', {
-      $scope: $scope,
+    var controller = $controller('ArticleEditController', {
       $route: $route,
       articleManager: articleManager
     })
@@ -38,6 +37,6 @@ describe('ArticleController', function () {
 
     $scope.$apply()
 
-    expect($scope.article).toEqual(_MOCK_ARTICLE)
+    expect(controller.article).toEqual(_MOCK_ARTICLE)
   })
 })

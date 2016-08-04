@@ -1,5 +1,12 @@
+/**
+ * Flotilla Angular App which will pull in any external dependencies such as 'ngRoute', 'ngResource', 'lodash'
+ * @namespace flotilla
+ */
 (function () {
-  // public/app.module.js
-  // define the 'flotilla' module
-  angular.module('flotilla', ['ngRoute', 'lodash'])
+  angular
+    .module('flotilla', [
+      'ngRoute',
+      'ngResource',
+      'lodash'
+    ])
 })()

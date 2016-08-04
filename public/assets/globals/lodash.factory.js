@@ -1,9 +1,19 @@
+/**
+ * Lodash
+ * @namespace flotilla.Globals
+ */
 (function () {
-  // public/globals/lodash.factory.js
-  angular.module('lodash', [])
-         .factory('_', lodashFactory)
+  angular
+    .module('lodash', [])
+    .factory('_', Lodash)
 
-  function lodashFactory () {
-    return window._ // Lodash must already be loaded on the page
+  /**
+   * @namespace Lodash
+   * @desc Lodash library made available for injecting into angular components
+   * @memberOf flotilla.Globals
+   */
+  function Lodash () {
+    // Lodash must already be loaded on the page
+    return window._
   }
 })()

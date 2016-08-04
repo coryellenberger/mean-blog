@@ -29,8 +29,7 @@ describe('ArticleEditController', function () {
     it('get $scope.article from articleManager.getArticle at construction if articleId in $route.current.params', function () {
       spyOn(articleManager, 'getArticle').and.returnValue(deferred.promise)
 
-      $controller('ArticleController', {
-        $scope: $scope,
+      var controller = $controller('ArticleController', {
         $route: $route,
         articleManager: articleManager
       })
@@ -39,7 +38,7 @@ describe('ArticleEditController', function () {
 
       $scope.$apply()
 
-      expect($scope.article).toEqual(_MOCK_ARTICLE)
+      expect(controller.article).toEqual(_MOCK_ARTICLE)
       expect(articleManager.getArticle).toHaveBeenCalledWith(_ARTICLE_ID)
     })
 
@@ -47,8 +46,7 @@ describe('ArticleEditController', function () {
       // TODO: update this test to not load $scope.article
       spyOn(articleManager, 'getArticle').and.returnValue(deferred.promise)
 
-      $controller('ArticleController', {
-        $scope: $scope,
+      var controller = $controller('ArticleController', {
         $route: $route,
         articleManager: articleManager
       })
@@ -57,7 +55,7 @@ describe('ArticleEditController', function () {
 
       $scope.$apply()
 
-      expect($scope.article).toEqual(_MOCK_ARTICLE)
+      expect(controller.article).toEqual(_MOCK_ARTICLE)
       expect(articleManager.getArticle).toHaveBeenCalledWith(_ARTICLE_ID)
     })
   })

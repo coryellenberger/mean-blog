@@ -1,13 +1,24 @@
+/**
+ * ArticleController
+ * @namespace Controllers
+ */
 (function () {
-  // public/components/article/article.controller.js
-  angular.module('flotilla')
-         .controller('ArticleController', ArticleController)
+  angular
+    .module('flotilla')
+    .controller('ArticleController', ArticleController)
 
-  ArticleController.$inject = ['$scope', '$route', 'articleManager']
+  ArticleController.$inject = ['$route', 'articleManager']
 
-  function ArticleController ($scope, $route, articleManager) {
+  /**
+   * @namespace ArticleController
+   * @desc Binds the View/Model/Business Logic for Article
+   * @memberOf flotilla.Controllers
+   */
+  function ArticleController ($route, articleManager) {
+    var vm = this
     articleManager.getArticle($route.current.params.articleId).then(function (article) {
-      $scope.article = article
+      vm.article = article
     })
   }
 })()
+

@@ -20,8 +20,7 @@ describe('HomeController', function () {
   it('should get $scope.articles from articleManager.loadAllArticles at construction', function () {
     spyOn(articleManager, 'loadAllArticles').and.returnValue(deferred.promise)
 
-    $controller('HomeController', {
-      $scope: $scope,
+    var controller = $controller('HomeController', {
       articleManager: articleManager
     })
 
@@ -29,6 +28,6 @@ describe('HomeController', function () {
 
     $scope.$apply()
 
-    expect($scope.articles).toEqual(_MOCK_ARTICLE)
+    expect(controller.articles).toEqual(_MOCK_ARTICLE)
   })
 })

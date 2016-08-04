@@ -1,107 +1,145 @@
+/**
+ * articleManager
+ * @namespace flotilla.Factories
+ */
 (function () {
-  // public/components/article/article.factory.js
-  angular.module('flotilla')
-         .factory('articleManager', articleManager)
+  angular
+    .module('flotilla')
+    .factory('articleManager', articleManager)
 
-  articleManager.$inject = ['$http', '$q', '_', 'articleModel']
+  articleManager.$inject = ['$http', '$q', '_', 'Article']
 
-  function articleManager ($http, $q, _, ArticleModel) {
-    /* Private */
-    // ArticleModel Pool
-    var _articles = {}
-    // Retrieve an ArticleModel
-    var _retrieveInstance = function (articleId, articleData) {
-      // get instance from pool
-      var instance = _articles[articleId]
-      // if instance exists setData
-      if (instance) {
-        instance.setData(articleData)
-      } else {
-        // if instance doesn't exist create new
-        instance = new ArticleModel(articleData)
-        // add instance to pool
-        _articles[articleId] = instance
-      }
-      // return instance
-      return instance
+  /**
+   * @namespace articleManager
+   * @desc article CRUD apis and storing articles in memory
+   * @memberOf flotilla.Factories
+   */
+  function articleManager ($http, $q, _, Article) {
+    var service = {
+      getArticle: getArticle,
+      loadAllArticles: loadAllArticles,
+      updateArticle: updateArticle,
+      deleteArticle: deleteArticle
     }
-    // Search article by ID
-    var _search = function (articleId) {
+
+    /* Private */
+    // Article Pool
+    var _articles
+    // add article instance
+    function _addInstance (articleInstance) {
+      if (!_articles) {
+        _articles = {}
+      }
+      _articles[articleInstance._id] = articleInstance
+    }
+    // get article instance by id
+    function _getInstance (articleId) {
+      if (!_articles) {
+        return
+      }
       // return instance
       return _articles[articleId]
     }
-    // Load article by ID
-    var _load = function (articleId, deferred) {
-      $http.get('/api/article/' + articleId)
-        .success(function (articleData) {
-          var article = _retrieveInstance(articleData._id, articleData)
-          deferred.resolve(article)
-        })
-        .error(function () {
-          deferred.reject()
-        })
+    // Load article by id
+    function _load (articleId, deferred) {
+      Article.get({ id: articleId }, function (article) {
+        _addInstance(article)
+        deferred.resolve(article)
+      })
     }
 
-    /* Public API */
-    return {
-      /* Use this function in order to get a article instance by it's _id */
-      getArticle: function (articleId) {
-        // create deferred
-        var deferred = $q.defer()
-        // search articles
-        var article = _search(articleId)
-        if (article) {
-          // if article returned resolve
-          deferred.resolve(article)
-        } else {
-          // otherwise load article
-          _load(articleId, deferred)
-        }
-        // return deferred
-        return deferred.promise
-      },
-      /* Use this function in order to get instances of all the articles */
-      loadAllArticles: function () {
-        // create deferred
-        var deferred = $q.defer()
-        // get all articles
-        $http.get('/api/articles')
-          .success(function (data) {
-            // on success
-            var articles = []
-            // loop over the returned articles
-            _.each(data, function (articleData) {
-              // add each as an instance to the pool
-              var article = _retrieveInstance(articleData._id, articleData)
-              articles.push(article)
-            })
-            // resolve deferred with articles
-            deferred.resolve(articles)
+    /**
+     * @name getArticle
+     * @desc get an article instance by it's _id
+     * @param {String} articleId _id of the article to get
+     * @returns {Array[object]} deferred promise returned from $http request
+     * @memberOf flotilla.Factories.articleManager
+     */
+    function getArticle (articleId) {
+      // create deferred
+      var deferred = $q.defer()
+      // search articles
+      var article = _getInstance(articleId)
+      if (article) {
+        // if article returned resolve
+        deferred.resolve(article)
+      } else {
+        // otherwise load article
+        _load(articleId, deferred)
+      }
+      // return deferred
+      return deferred.promise
+    }
+
+    /**
+     * @name loadAllArticles
+     * @desc load all article instances into the pool using retrieveInstance
+     * @returns {Array[object]} deferred promise returned from $http request
+     * @memberOf flotilla.Factories.articleManager
+     */
+    function loadAllArticles () {
+      var deferred = $q.defer()
+
+      if (_articles) {
+        deferred.resolve(_articles)
+      } else {
+        var articles = Article.query(function () {
+          // loop over the returned articles
+          _.each(articles, function (article) {
+            // add each as an instance to the pool
+            _addInstance(article)
           })
-          .error(function () {
-            deferred.reject()
-          })
-        return deferred.promise
-      },
-      updateArticle: function (articleData) {
-        var article = _search(articleData._id)
-        if (article) {
-          article.update()
-        } else {
-          // if instance doesn't exist create new
-          article = new ArticleModel(articleData)
-          article.update().then(function () {
-            _retrieveInstance(article)
-          })
-        }
-        return article
-      },
-      deleteArticle: function (articleId) {
-        var article = _search(articleId)
-        if (article) {
-          article.delete()
-        }
+
+          // resolve deferred with articles
+          deferred.resolve(articles)
+        })
+      }
+
+      return deferred.promise
+    }
+
+    /**
+     * @name updateArticle
+     * @desc updated an article
+     * @param {String} articleData article model to be updated
+     * @returns {Array[object]} article the updated article
+     * @memberOf flotilla.Factories.articleManager
+     */
+    function updateArticle (articleData) {
+      // create deferred
+      var deferred = $q.defer()
+      // search for this instance of the article
+      var article = _getInstance(articleData._id)
+      // if it exists update
+      if (!article) {
+        // if instance doesn't exist create new
+        article = new Article(articleData)
+      }
+      // post the article
+      article.$save(function (article) {
+        // resolve deferred with article
+        deferred.resolve(article)
+        _addInstance(article)
+      })
+      // return the updated article
+      return deferred.promise
+    }
+
+    /**
+     * @name deleteArticle
+     * @desc delete article by _id; we can assume the article exists locally
+     * @param {String} articleId _id of article to be deleted
+     * @memberOf flotilla.Factories.articleManager
+     */
+    function deleteArticle (articleId) {
+      // retrieve instance
+      var article = _getInstance(articleId)
+      if (article) {
+        // use article model to delete instance
+        article.$remove({ id: article._id })
       }
     }
+
+    return service
   }
 })()
