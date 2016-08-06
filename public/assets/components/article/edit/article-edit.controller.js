@@ -21,6 +21,7 @@
     vm.saveClick = saveClick
     vm.deleteClick = deleteClick
 
+    /* Private members */
     var _cancelPath = '#/'
     var _ORIGINAL_PATH = _cancelPath
     var _ARTICLE_ID = $route.current.params.articleId
@@ -32,6 +33,7 @@
       _cancelPath = '/article/' + _ARTICLE_ID
     }
 
+    /* event handlers */
     /**
      * @name cancelClick
      * @desc ng-click event handler to cancel editing will navigate home
