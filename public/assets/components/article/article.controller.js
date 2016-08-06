@@ -4,7 +4,7 @@
  */
 (function () {
   angular
-    .module('flotilla')
+    .module('meanBlog')
     .controller('ArticleController', ArticleController)
 
   ArticleController.$inject = ['$route', 'articleManager']

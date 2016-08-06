@@ -4,7 +4,7 @@
  */
 (function () {
   angular
-    .module('flotilla')
+    .module('meanBlog')
     .controller('HomeController', HomeController)
 
   HomeController.$inject = ['articleManager']

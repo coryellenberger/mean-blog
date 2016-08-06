@@ -4,7 +4,7 @@
  */
 (function () {
   angular
-    .module('flotilla')
+    .module('meanBlog')
     .filter('commaSplit', commaSplit)
 
   /**

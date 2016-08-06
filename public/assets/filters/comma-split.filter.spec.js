@@ -1,5 +1,5 @@
 describe('commaSplit', function () {
-  beforeEach(module('flotilla'))
+  beforeEach(module('meanBlog'))
 
   var commaSplitFilter
   var _TEST1 = 'TEST1'

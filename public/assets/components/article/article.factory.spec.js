@@ -1,5 +1,5 @@
 xdescribe('articleManager', function () {
-  beforeEach(module('flotilla'))
+  beforeEach(module('meanBlog'))
 
   var articleManager
   /* var $q

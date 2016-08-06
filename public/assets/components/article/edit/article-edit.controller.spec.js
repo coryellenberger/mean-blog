@@ -1,5 +1,5 @@
 describe('ArticleEditController', function () {
-  beforeEach(module('flotilla'))
+  beforeEach(module('meanBlog'))
 
   var $controller
   var $scope

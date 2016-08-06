@@ -1,7 +1,8 @@
 (function () {
   // public/app.routes.js
-  angular.module('flotilla')
-         .config(RouteConfig)
+  angular
+    .module('meanBlog')
+    .config(RouteConfig)
 
   RouteConfig.$inject = ['$routeProvider', '$locationProvider']
 

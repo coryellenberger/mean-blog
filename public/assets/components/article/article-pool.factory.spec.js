@@ -1,5 +1,5 @@
 xdescribe('articlePool', function () {
-  beforeEach(module('flotilla'))
+  beforeEach(module('meanBlog'))
 
   var articlePool
 

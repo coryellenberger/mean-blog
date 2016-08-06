@@ -4,7 +4,7 @@
  */
 (function () {
   angular
-    .module('flotilla')
+    .module('meanBlog')
     .factory('Article', Article)
 
   Article.$inject = ['$resource']
