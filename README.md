@@ -1,6 +1,6 @@
 # flotilla
 
-[![Build Status](https://travis-ci.org/coryellenberger/mean-blog.svg?branch=master)](https://travis-ci.org/coryellenberger/mean-blog) [![JavaScript Style Guide][![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![Build Status](https://travis-ci.org/coryellenberger/mean-blog.svg?branch=master)](https://travis-ci.org/coryellenberger/mean-blog) [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 #### Initializing Project
 This will install all of the node modules for this project
