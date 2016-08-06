@@ -18,7 +18,7 @@
 
       // create article
       .when('/article', {
-        templateUrl: 'assets/components/article/edit/article.edit.html',
+        templateUrl: 'assets/components/article/edit/article-edit.html',
         controller: 'ArticleEditController',
         controllerAs: 'vm'
       })
@@ -32,7 +32,7 @@
 
       // edit article
       .when('/article/:articleId/edit', {
-        templateUrl: 'assets/components/article/edit/article.edit.html',
+        templateUrl: 'assets/components/article/edit/article-edit.html',
         controller: 'ArticleEditController',
         controllerAs: 'vm'
       })

@@ -51,7 +51,11 @@
       articleManager.updateArticle(vm.article)
       vm.cancelClick()
     }
-
+    /**
+     * @name deleteClick
+     * @desc ng-click event handler to delete the article delegating to the articleManager
+     * @memberOf Controllers.ArticleEditController
+     */
     function deleteClick () {
       articleManager.deleteArticle(vm.article._id)
       _cancelPath = _ORIGINAL_PATH

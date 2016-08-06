@@ -7,45 +7,19 @@
     .module('flotilla')
     .factory('articleManager', articleManager)
 
-  articleManager.$inject = ['$http', '$q', '_', 'Article']
+  articleManager.$inject = ['$q', '_', 'Article', 'articlePool']
 
   /**
    * @namespace articleManager
    * @desc article CRUD apis and storing articles in memory
    * @memberOf Factories
    */
-  function articleManager ($http, $q, _, Article) {
+  function articleManager ($q, _, Article, articlePool) {
     var service = {
       getArticle: getArticle,
       loadAllArticles: loadAllArticles,
       updateArticle: updateArticle,
       deleteArticle: deleteArticle
-    }
-
-    /* Private */
-    // Article Pool
-    var _articles
-    // add article instance
-    function _addInstance (articleInstance) {
-      if (!_articles) {
-        _articles = {}
-      }
-      _articles[articleInstance._id] = articleInstance
-    }
-    // get article instance by id
-    function _getInstance (articleId) {
-      if (!_articles) {
-        return
-      }
-      // return instance
-      return _articles[articleId]
-    }
-    // Load article by id
-    function _load (articleId, deferred) {
-      Article.get({ id: articleId }, function (article) {
-        _addInstance(article)
-        deferred.resolve(article)
-      })
     }
 
     /**
@@ -59,13 +33,13 @@
       // create deferred
       var deferred = $q.defer()
       // search articles
-      var article = _getInstance(articleId)
+      var article = articlePool.getInstance(articleId)
       if (article) {
         // if article returned resolve
         deferred.resolve(article)
       } else {
         // otherwise load article
-        _load(articleId, deferred)
+        articlePool.load(articleId, deferred)
       }
       // return deferred
       return deferred.promise
@@ -80,14 +54,14 @@
     function loadAllArticles () {
       var deferred = $q.defer()
 
-      if (_articles) {
-        deferred.resolve(_articles)
+      if (articlePool.getPool()) {
+        deferred.resolve(articlePool.getPool())
       } else {
         var articles = Article.query(function () {
           // loop over the returned articles
           _.each(articles, function (article) {
             // add each as an instance to the pool
-            _addInstance(article)
+            articlePool.addInstance(article)
           })
 
           // resolve deferred with articles
@@ -109,7 +83,7 @@
       // create deferred
       var deferred = $q.defer()
       // search for this instance of the article
-      var article = _getInstance(articleData._id)
+      var article = articlePool.getInstance(articleData._id)
       // if it exists update
       if (!article) {
         // if instance doesn't exist create new
@@ -119,7 +93,7 @@
       article.$save(function (article) {
         // resolve deferred with article
         deferred.resolve(article)
-        _addInstance(article)
+        articlePool.addInstance(article)
       })
       // return the updated article
       return deferred.promise
@@ -133,7 +107,7 @@
      */
     function deleteArticle (articleId) {
       // retrieve instance
-      var article = _getInstance(articleId)
+      var article = articlePool.getInstance(articleId)
       if (article) {
         // use article model to delete instance
         article.$remove({ id: article._id })
