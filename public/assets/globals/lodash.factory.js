@@ -1,6 +1,6 @@
 /**
  * Lodash
- * @namespace flotilla.Globals
+ * @namespace Globals
  */
 (function () {
   angular
@@ -10,7 +10,7 @@
   /**
    * @namespace Lodash
    * @desc Lodash library made available for injecting into angular components
-   * @memberOf flotilla.Globals
+   * @memberOf Globals
    */
   function Lodash () {
     // Lodash must already be loaded on the page

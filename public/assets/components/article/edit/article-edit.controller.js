@@ -12,7 +12,7 @@
   /**
    * @namespace ArticleEditController
    * @desc Binds the View/Model/Business Logic for Article Edit
-   * @memberOf flotilla.Controllers
+   * @memberOf Controllers
    */
   function ArticleEditController ($route, $location, articleManager) {
     /* Public members */
@@ -35,7 +35,7 @@
     /**
      * @name cancelClick
      * @desc ng-click event handler to cancel editing will navigate home
-     * @memberOf flotilla.Controllers.ArticleEditController
+     * @memberOf Controllers.ArticleEditController
      */
     function cancelClick () {
       $location.path(_cancelPath)
@@ -43,7 +43,7 @@
     /**
      * @name cancelClick
      * @desc ng-click event handler to save the article delegating to the articleManager
-     * @memberOf flotilla.Controllers.ArticleEditController
+     * @memberOf Controllers.ArticleEditController
      */
     function saveClick () {
       articleManager.updateArticle(vm.article)

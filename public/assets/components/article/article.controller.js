@@ -12,7 +12,7 @@
   /**
    * @namespace ArticleController
    * @desc Binds the View/Model/Business Logic for Article
-   * @memberOf flotilla.Controllers
+   * @memberOf Controllers
    */
   function ArticleController ($route, articleManager) {
     var vm = this

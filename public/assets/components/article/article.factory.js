@@ -1,6 +1,6 @@
 /**
  * articleManager
- * @namespace flotilla.Factories
+ * @namespace Factories
  */
 (function () {
   angular
@@ -12,7 +12,7 @@
   /**
    * @namespace articleManager
    * @desc article CRUD apis and storing articles in memory
-   * @memberOf flotilla.Factories
+   * @memberOf Factories
    */
   function articleManager ($http, $q, _, Article) {
     var service = {
@@ -52,8 +52,8 @@
      * @name getArticle
      * @desc get an article instance by it's _id
      * @param {String} articleId _id of the article to get
-     * @returns {Array[object]} deferred promise returned from $http request
-     * @memberOf flotilla.Factories.articleManager
+     * @returns {Array} deferred promise returned from $http request
+     * @memberOf Factories.articleManager
      */
     function getArticle (articleId) {
       // create deferred
@@ -74,8 +74,8 @@
     /**
      * @name loadAllArticles
      * @desc load all article instances into the pool using retrieveInstance
-     * @returns {Array[object]} deferred promise returned from $http request
-     * @memberOf flotilla.Factories.articleManager
+     * @returns {Array} deferred promise returned from $http request
+     * @memberOf Factories.articleManager
      */
     function loadAllArticles () {
       var deferred = $q.defer()
@@ -102,8 +102,8 @@
      * @name updateArticle
      * @desc updated an article
      * @param {String} articleData article model to be updated
-     * @returns {Array[object]} article the updated article
-     * @memberOf flotilla.Factories.articleManager
+     * @returns {Array} article the updated article
+     * @memberOf Factories.articleManager
      */
     function updateArticle (articleData) {
       // create deferred
@@ -129,7 +129,7 @@
      * @name deleteArticle
      * @desc delete article by _id; we can assume the article exists locally
      * @param {String} articleId _id of article to be deleted
-     * @memberOf flotilla.Factories.articleManager
+     * @memberOf Factories.articleManager
      */
     function deleteArticle (articleId) {
       // retrieve instance

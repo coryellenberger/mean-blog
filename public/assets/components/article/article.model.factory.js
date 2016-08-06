@@ -1,6 +1,6 @@
 /**
  * Article
- * @namespace flotilla.Factories
+ * @namespace Factories
  */
 (function () {
   angular
@@ -12,7 +12,7 @@
   /**
    * @namespace Article
    * @desc description
-   * @memberOf flotilla.Factories
+   * @memberOf Factories
    */
   function Article ($resource) {
     return $resource('/api/article/:id', { id: '@id' })

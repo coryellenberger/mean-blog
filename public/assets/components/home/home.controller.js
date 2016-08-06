@@ -12,7 +12,7 @@
   /**
    * @namespace HomeController
    * @desc Binds the View/Model/Business Logic for Home
-   * @memberOf flotilla.Controllers
+   * @memberOf Controllers
    */
   function HomeController (articleManager) {
     var vm = this
