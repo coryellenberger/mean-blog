@@ -43,17 +43,18 @@
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-bower": "0.0.13",
-    "jsdoc": "^3.4.0",
     "lodash": "^4.13.1",
     "method-override": "^2.3.6",
     "mongoose": "^4.5.5"
   },
   "devDependencies": {
     "jasmine-core": "^2.4.1",
+    "jsdoc": "^3.4.0",
     "karma": "^1.1.1",
     "karma-chrome-launcher": "^1.0.1",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
     "standard": "^7.1.2"
   }
 }
