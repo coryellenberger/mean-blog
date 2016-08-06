@@ -14,16 +14,16 @@ describe('commaSplit', function () {
 
   it('should take in CSV and return an array of values', function () {
     expect(commaSplitFilter).toBeDefined()
-    expect(commaSplitFilter()(_INPUT)).toEqual(_ARRAY)
+    expect(commaSplitFilter(_INPUT)).toEqual(_ARRAY)
   })
 
   it('should return nothing if no input', function () {
     expect(commaSplitFilter).toBeDefined()
-    expect(commaSplitFilter()()).toEqual()
+    expect(commaSplitFilter()).toEqual()
   })
 
   it('should return nothing if no input 0 is empty', function () {
     expect(commaSplitFilter).toBeDefined()
-    expect(commaSplitFilter()(',')).toEqual()
+    expect(commaSplitFilter(',')).toEqual()
   })
 })
