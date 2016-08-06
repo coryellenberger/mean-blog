@@ -28,7 +28,7 @@ describe('ArticleController', function () {
   it('should get $scope.article from articleManager.getArticle at construction', function () {
     spyOn(articleManager, 'getArticle').and.returnValue(deferred.promise)
 
-    var controller = $controller('ArticleEditController', {
+    var controller = $controller('ArticleController', {
       $route: $route,
       articleManager: articleManager
     })
