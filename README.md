@@ -1,6 +1,6 @@
 # Mean Blog
 
-[![Build Status](https://travis-ci.org/coryellenberger/mean-blog.svg?branch=master)](https://travis-ci.org/coryellenberger/mean-blog) [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![Angular Style Guide](https://img.shields.io/badge/style-angularjs-brightgreen.svg?style=flat)](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md) [![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000)]()
+[![Build Status](https://travis-ci.org/coryellenberger/mean-blog.svg?branch=master)](https://travis-ci.org/coryellenberger/mean-blog) [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![Angular Style Guide](https://img.shields.io/badge/bestpractices-angularjs-brightgreen.svg?style=flat)](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md) [![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000)]()
 
 #### Initializing Project
 This will install all of the node modules for this project
