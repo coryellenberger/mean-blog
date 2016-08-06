@@ -2,6 +2,11 @@ var gulp = require('gulp')
 var path = require('path')
 var bower = require('gulp-bower')
 var Server = require('karma').Server
+var childExec = require('child_process').exec
+
+gulp.task('docs', function (done) {
+  childExec('node ./node_modules/jsdoc/jsdoc.js ./public/assets -r', undefined, done)
+})
 
 gulp.task('bower', function () {
   return bower()
