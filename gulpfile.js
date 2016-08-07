@@ -1,7 +1,6 @@
 var gulp = require('gulp')
 var path = require('path')
 var bower = require('gulp-bower')
-var Server = require('karma').Server
 var childExec = require('child_process').exec
 
 gulp.task('docs', function (done) {
@@ -13,6 +12,7 @@ gulp.task('bower', function () {
 })
 
 gulp.task('test', function (done) {
+  var Server = require('karma').Server
   new Server({
     configFile: path.join(__dirname, '/karma.conf.js'),
     singleRun: true,
@@ -22,6 +22,7 @@ gulp.task('test', function (done) {
 })
 
 gulp.task('tdd', function (done) {
+  var Server = require('karma').Server
   new Server({
     configFile: path.join(__dirname, '/karma.conf.js')
   }, done).start()
